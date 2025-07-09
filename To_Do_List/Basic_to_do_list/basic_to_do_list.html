@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Basic To-Do List</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>📝 To-Do List</h1>
+    <div class="task-input">
+      <input type="text" id="taskInput" placeholder="Enter a new task..." />
+      <input type="date" id="dueDateInput" />
+      <select id="priority">
+        <option value="normal">Normal</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button onclick="addTask()">Add</button>
+    </div>
+    <input type="text" id="searchInput" placeholder="Search tasks..." oninput="searchTasks()" />
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.error("Service Worker registration failed:", err));
+    }
+  </script>
+</body>
+</html>
