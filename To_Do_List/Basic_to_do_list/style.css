@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://www.farrer.co.uk/globalassets/work-from-home.jpg?width=570&height=321&mode=crop') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.task-input,
+#searchInput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.task-input input,
+.task-input select,
+.task-input button,
+#searchInput {
+  flex: 1 1 auto;
+  min-width: 120px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #eaeaea;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.high {
+  border-left: 4px solid red;
+}
+
+.medium {
+  border-left: 4px solid rgb(28, 3, 255);
+}
+
+.normal {
+  border-left: 4px solid rgb(0, 0, 0);
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 500px) {
+  .task-input input,
+  .task-input select,
+  .task-input button,
+  #searchInput {
+    font-size: 13px;
+    padding: 6px;
+  }
+}
