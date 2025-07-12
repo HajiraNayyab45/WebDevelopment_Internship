@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced To-Do App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+  <div class="theme-toggle">
+    <button id="toggleTheme">🌓</button>
+    <button onclick="exportData()">⬇️ Export</button>
+  </div>
+
+  <div class="app-wrapper">
+    <div class="app">
+      <aside class="sidebar">
+        <h2>Tasks</h2>
+        <ul class="task-nav">
+          <li onclick="switchSection('today')">✅ Today</li>
+          <li onclick="switchSection('upcoming')">📅 Upcoming</li>
+          <li onclick="switchSection('calendar')">🗓 Calendar</li>
+          <li onclick="switchSection('sticky')">🧱 Sticky Wall</li>
+        </ul>
+
+        <h2>Lists</h2>
+        <ul id="listContainer" class="list-items"></ul>
+        <input id="newListInput" placeholder="New List..." />
+        <button onclick="addList()">+ Add List</button>
+
+
+      </aside>
+
+      <main>
+        <header>
+          <input type="text" id="searchInput" placeholder="Search tasks..." oninput="renderTasks()" />
+          <button onclick="document.getElementById('searchInput').value=''; renderTasks();">🗑 Clear All</button>
+        </header>
+        
+    
+
+        <h1 id="sectionTitle">Today</h1>
+
+        <div class="task-input">
+          <input type="text" id="taskText" placeholder="New Task Title..." />
+          <textarea type="text" id="taskDesc" placeholder="Description..."></textarea>
+          <input type="text" id="taskDate" placeholder="mm/dd/yyyy">
+          <select id="taskList"><option value="">Select List</option></select>
+          <button onclick="addTask()">➕</button>
+        </div>
+
+        <div id="calendarView" class="calendar-container" style="display: none;">
+          <input id="calendarPicker" placeholder="Pick a date to view tasks" />
+          <ul id="calendarTasks"></ul>
+        </div>
+
+        <ul id="taskListContainer" class="task-list"></ul>
+        <div id="stickyWall" class="sticky-wall"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
