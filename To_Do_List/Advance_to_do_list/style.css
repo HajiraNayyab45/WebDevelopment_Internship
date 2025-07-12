@@ -1,0 +1,325 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://img.freepik.com/free-photo/top-view-desk-with-notepad-alarm-clock_23-2148285103.jpg?semt=ais_hybrid&w=740') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  transition: 0.3s;
+}
+
+body.dark {
+  background-color: #010101;
+  color: white;
+}
+
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  background: #d0e7ff;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+}
+
+body.dark .app {
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+body.dark .sidebar {
+  background: #2e3b55;
+}
+
+.task-nav li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #eee;
+  border-radius: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.task-nav li:hover {
+  background: #ccc;
+}
+.task-nav li:active {
+  transform: scale(0.98);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.list-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+}
+.list-items li::before {
+  content: "📁 ";
+  margin-right: 5px;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.task-input input, .task-input select {
+  padding: 10px;
+  flex: 1;
+}
+.task-input button {
+  padding: 10px 15px;
+  background: #1a73e8;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+}
+
+body.dark .task-input button {
+  background: #3e3e66;
+  color: black;
+}
+
+.task-list li {
+  background: #f4f4f4;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.task-list li button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+body.dark .task-list li {
+  background: #3e3e66;
+  color: rgb(0, 0, 0);
+}
+
+.sticky-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.sticky-note {
+  background: #fff700;
+  width: 180px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+}
+.theme-toggle button {
+  padding: 5px 10px;
+  margin-left: 5px;
+}
+
+.calendar-container {
+  background: #f0f8ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+body.dark .calendar-container {
+  background: #2e3b55;
+}
+
+.list-group {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}
+
+body.dark .list-item {
+  background-color: #333;
+  color: white;
+}
+
+.list-label {
+  flex-grow: 1;
+  text-align: left;
+  font-weight: 500;
+}
+
+.delete-list-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+  padding: 0;
+}
+
+body.dark .task-list li {
+  background: #3e3e66;
+  color: black; /* Force black text in dark mode */
+}
+
+body.dark .sticky-note {
+  color: black; /* Keep sticky note text black */
+}
+
+/* Responsive Design */
+
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 95%;
+  max-width: 1200px;
+  background: #d0e7ff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 220px;
+  max-width: 250px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1;
+  min-width: 0; /* allows shrinking without overflow */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.task-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.task-input input,
+.task-input textarea,
+.task-input select {
+  flex: 1 1 200px;
+  min-width: 120px;
+}
+
+.task-input button {
+  flex: 0 0 auto;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+header input {
+  flex: 1 1 250px;
+  min-width: 150px;
+}
+
+header button {
+  flex: 0 0 auto;
+}
+
+.section-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.section-buttons button {
+  flex: 1 1 120px;
+  min-width: 80px;
+}
+
+
+@media (max-width: 600px) {
+  .sidebar {
+    min-width: 180px;
+    max-width: 180px;
+  }
+
+  .task-input input,
+  .task-input textarea,
+  .task-input select {
+    flex: 1 1 100%;
+  }
+
+  .task-input button {
+    width: 100%;
+  }
+
+  header input {
+    flex: 1 1 100%;
+  }
+
+  header button {
+    width: 100%;
+  }
+
+  .section-buttons button {
+    flex: 1 1 48%;
+  }
+}
